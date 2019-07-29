@@ -1,0 +1,13 @@
+/// example `placeholder`
+/// @example scss - scss inputs
+///   .selector {
+///     @extend %example-placeholder;
+///   }
+/// @example css - css outputs
+///   .selector {
+///     display: block;
+///   }
+///
+%example-placeholder {
+  display: block;
+}

@@ -1,0 +1,50 @@
+{
+  "name": "@hidoo/sassdoc-to-markdown",
+  "version": "0.0.0",
+  "description": "Generate markdown document use SassDoc.",
+  "main": "lib/index.js",
+  "bin": {
+    "sassdoc2md": "bin/index.js"
+  },
+  "files": [
+    "bin/",
+    "lib/",
+    "template/"
+  ],
+  "scripts": {
+    "dev": "babel-node ./src/cli.js",
+    "prebuild": "rimraf ./lib",
+    "build": "babel ./src --out-dir ./lib",
+    "test": "cross-env NODE_ENV=test mocha"
+  },
+  "keywords": [
+    "sassdoc",
+    "markdown",
+    "documentation"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "hidoo",
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "8.1.0",
+    "glob": "7.1.4",
+    "handlebars": "4.1.2",
+    "mdast-util-inject": "1.1.0",
+    "meow": "5.0.0",
+    "remark": "11.0.0",
+    "sassdoc": "2.7.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.5.0",
+    "@babel/core": "7.4.5",
+    "@babel/node": "7.5.5",
+    "@babel/preset-env": "7.4.5",
+    "@babel/register": "7.4.4",
+    "babel-preset-power-assert": "3.0.0",
+    "mocha": "6.1.4",
+    "power-assert": "1.6.1",
+    "rimraf": "2.6.3"
+  }
+}

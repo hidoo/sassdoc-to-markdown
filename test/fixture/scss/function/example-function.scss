@@ -1,0 +1,13 @@
+/// example `function`
+/// @param {number} $arg1 [0] argument #1
+/// @param {list} $arg1 [()] argument #2
+/// @return {string} example text
+///
+/// @example scss - scss inputs
+///   @debug: example-function(30px, ("a", "b", "c"));
+/// @example sh - outputs
+///   example
+///
+@function example-function($arg1: 0, $arg2: ()) {
+  @return "example";
+}

@@ -1,0 +1,7 @@
+/// example `function` alias
+/// @alias example-function
+/// @deprecated example-function-alias is deprecated, instead use example-function
+///
+@function example-function-alias($arg1: 0, $arg2: ()) {
+  @return example-function($arg1, $arg2);
+}

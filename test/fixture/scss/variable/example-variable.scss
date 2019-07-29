@@ -1,0 +1,12 @@
+/// example `variable`
+/// @group settings
+/// @type map | list
+/// @prop {number} key1 [0] - key1
+/// @prop {color} key2 [#000] - key2
+/// @prop {string} key3 ["example"] - key3
+///
+$example-variable: (
+  "key1": 0,
+  "key2": #000,
+  "key3": "example"
+) !default;

@@ -1,0 +1,43 @@
+/// example `mixin`
+/// @todo update options
+/// @todo update docs
+/// @since 0.1.0 example description
+/// @require {variable} example-variable - require variable <../variable/example-variable.scss>
+/// @require {variable} example-variable-private - require private variable
+/// @require {function} example-function - require function
+/// @require {placeholder} example-placeholder - require function
+/// @param {string} $arg1 [""] argument #1 ("hoge"|"fuga")
+/// @param {map | list} $arg2 [()] argument #2
+/// @param {string} $arg2.key [""] key `option`
+/// @content extra content
+/// @throw error description
+/// @output example content value
+/// @link https://example.com/ example caption
+/// @link https://other.example.com/
+/// @see {variable} example-variable
+/// @see %example-placeholder
+/// @ignore ignore messages
+/// @author example author
+/// @author example other author
+///
+/// @example scss - scss inputs
+///   .selector {
+///     @include example-mixin($arg1: "hoge", $arg2: ()) {
+///       font-size: 16px;
+///     };
+///   }
+/// @example css - css outputs
+///   .selector::after {
+///     display: block;
+///     content: "hoge";
+///     font-size: 16px;
+///   }
+///
+@mixin example-mixin($arg1: "", $arg2: ()) {
+  &::after {
+    @extend %example-placeholder;
+
+    content: "#{$arg1}";
+    @content;
+  }
+}

@@ -1,0 +1,206 @@
+{{!--
+  Each groups
+--}}
+{{#each this}}
+
+{{!--
+  Group Name
+--}}
+# Group: {{normalizeGroupName @key}}
+
+{{!--
+  Each items
+--}}
+{{#each this}}
+
+<a id="{{slug this.group this.context.type this.context.name}}"></a>
+
+{{!--
+  Name
+--}}
+# [{{this.context.type}}] {{this.context.name}}
+
+{{!--
+  Deprecated
+--}}
+{{#ifDefined this.deprecated}}> **DEPRECATED!**     {{/ifDefined}}
+{{#if this.deprecated}}> {{this.deprecated}}{{/if}}
+
+{{!--
+  Todo
+--}}
+{{#each this.todo}}
+**[TODO]** {{{this}}}{{#unless @last}}     {{/unless}}
+{{/each}}
+
+{{!--
+  Access
+--}}
+**Access:** {{this.access}}
+
+{{!--
+  Description
+--}}
+{{{this.description}}}
+
+{{!--
+  Type
+  + variable
+--}}
+{{#if this.type}}
+## Type
+
+**{{this.type}}**
+{{/if}}
+
+{{!--
+  Parameters
+  + function, mixin
+--}}
+{{#if this.parameter.[0]}}## Parameters{{/if}}
+
+{{#each this.parameter}}
++ `{{this.name}}` **{{normalizeTypes this.type}}**{{#if this.description}} {{{trim this.description}}}{{/if}}{{#if this.default}} (default `{{{this.default}}}`){{/if}}
+{{/each}}
+
+{{!--
+  Properties
+  + variable
+--}}
+{{#if this.property.[0]}}## Properties{{/if}}
+
+{{#each this.property}}
++ `{{this.name}}` **{{normalizeTypes this.type}}**{{#if this.description}} {{{trim this.description}}}{{/if}}{{#if this.default}} (default `{{{this.default}}}`){{/if}}
+{{/each}}
+
+{{!--
+  Content
+  + mixin
+--}}
+{{#if this.content}}
+## Contents
+
+{{{this.content}}}
+{{/if}}
+
+{{!--
+  Returns
+  + function
+--}}
+{{#if this.return}}
+## Returns
+
+**{{normalizeTypes this.return.type}}**{{#if this.return.description}} {{{trim this.return.description}}}{{/if}}
+{{/if}}
+
+{{!--
+  Throws
+  + placeholder, function, mixin
+--}}
+{{#if this.throw.[0]}}## Throws{{/if}}
+
+{{#each this.throw}}
++ {{{this}}}
+{{/each}}
+
+{{!--
+  Outputs
+  + mixin
+--}}
+{{#if this.output}}
+## Outputs
+
+{{{this.output}}}
+{{/if}}
+
+{{!--
+  Examples
+--}}
+{{#if this.example.[0]}}## Examples{{/if}}
+
+{{#each this.example}}
+{{#if this.description}}{{{trim this.description}}}{{/if}}
+
+```{{{this.type}}}
+{{{this.code}}}
+```
+{{/each}}
+
+{{!--
+  Dependencies
+--}}
+{{#if this.require.[0]}}## Dependencies{{/if}}
+
+{{#each this.require}}
+{{#if this.external}}
++ [{{this.item.context.type}}] {{#if this.url}}**[{{this.item.context.name}}]({{this.url}})**{{else}}**{{this.item.context.name}}**{{/if}}{{#if this.description}} {{{trim this.description}}}{{/if}}
+{{else}}
++ [{{this.item.context.type}}] **[{{this.item.context.name}}](#{{slug this.item.group this.item.context.type this.item.context.name}})**{{#if this.description}} {{{trim this.description}}}{{/if}}
+{{/if}}
+{{/each}}
+
+{{!--
+  Dependents
+--}}
+{{#if this.usedBy.[0]}}## Dependents{{/if}}
+
+{{#each this.usedBy}}
++ [{{this.context.type}}] **{{this.context.name}}**{{#if this.description}} {{{trim this.description}}}{{/if}}
+{{/each}}
+
+{{!--
+  Alias
+--}}
+{{#if this.alias}}
+## Alias
+
++ **{{this.alias}}**
+{{/if}}
+
+{{!--
+  Aliased
+--}}
+{{#if this.aliased.[0]}}## Aliased by{{/if}}
+
+{{#each this.aliased}}
++ **{{this}}**
+{{/each}}
+
+{{!--
+  See
+--}}
+{{#if this.see.[0]}}## See{{/if}}
+{{#each this.see}}
++ [{{this.context.type}}] **[{{this.context.name}}](#{{slug this.group this.context.type this.context.name}})**
+{{/each}}
+
+{{!--
+  Links
+--}}
+{{#if this.link.[0]}}## Links{{/if}}
+
+{{#each this.link}}
++ {{#if this.caption}}[{{this.caption}}]({{this.url}}){{else}}<{{this.url}}>{{/if}}
+{{/each}}
+
+{{!--
+  Since
+--}}
+{{#if this.since.[0]}}## Since{{/if}}
+
+{{#each this.since}}
++ **{{this.version}}**{{#if this.description}} {{{trim this.description}}}{{/if}}
+{{/each}}
+
+{{!--
+  Authors
+--}}
+{{#if this.author.[0]}}## Authors{{/if}}
+
+{{#each this.author}}
++ {{{this}}}
+{{/each}}
+
+{{/each}}
+
+{{/each}}
