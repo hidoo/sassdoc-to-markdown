@@ -3,5 +3,5 @@
 |:--|:--|:--|:--|
 {{/if}}
 {{#each this.value}}
-|`{{this.name}}`|{{normalizeTypes this.type}}|{{#if this.description}}{{{trim this.description}}}{{else}}-{{/if}}|{{#if this.default}}`{{{this.default}}}`{{else}}-{{/if}}|
+|`{{#if ../this.isParams}}${{/if}}{{this.name}}`|{{normalizeTypes this.type}}|{{#if this.description}}{{{trim this.description}}}{{else}}-{{/if}}|{{#if this.default}}`{{{this.default}}}`{{else}}-{{/if}}|
 {{/each}}
