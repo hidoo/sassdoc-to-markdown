@@ -11,10 +11,9 @@ export const register = (handlebars) => {
    *   {{slug item.groups item.type. item.name}}
    */
   handlebars.registerHelper('slug', (groups = [], type = '', name = '') => {
-    const [primaryGroup] = groups;
+    const [primaryGroup] = groups,
+          raw = `${primaryGroup === 'undefined' ? 'general' : primaryGroup}-${type}-${name}`; // eslint-disable-line max-len
 
-    return new handlebars.SafeString(
-      `${primaryGroup === 'undefined' ? 'general' : primaryGroup}-${type}-${name}`
-    );
+    return new handlebars.SafeString(raw.replace(/[\s#?<>.,&]/g, '-'));
   });
 };
