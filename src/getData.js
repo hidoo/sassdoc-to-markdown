@@ -50,7 +50,9 @@ export default async function getData(src = '', options = {}) {
     ...prev,
     [key]: value.sort((a, b) => {
       if (a.context.type === b.context.type) {
-        return a.context.name.localeCompare(b.context.name);
+        return a.file.path.localeCompare(b.file.path) ||
+          a.context.line.start - b.context.line.start ||
+          a.context.name.localeCompare(b.context.name);
       }
       return typeOrder.indexOf(a.context.type) - typeOrder.indexOf(b.context.type);
     })

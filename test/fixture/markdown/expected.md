@@ -84,6 +84,26 @@ css outputs
 
 + **@mixin example-mixin** example `mixin`
 
+<a id="general-function-example-function-alias"></a>
+
+# @function example-function-alias
+
+> **DEPRECATED!**  
+> example-function-alias is deprecated, instead use example-function
+
+example `function` alias
+
++ **Group:** General
++ **Access:** public
+
+## Dependencies
+
++ **[@function example-function](#general-function-example-function)**
+
+## Alias
+
++ **example-function**
+
 <a id="general-function-example-function"></a>
 
 # @function example-function
@@ -95,10 +115,10 @@ example `function`
 
 ## Parameters
 
-| Name   | Type                                                             | Description | Default |
-| :----- | :--------------------------------------------------------------- | :---------- | :------ |
-| `arg1` | **[Number](https://sass-lang.com/documentation/values/numbers)** | argument #1 | `0`     |
-| `arg1` | **[List](https://sass-lang.com/documentation/values/lists)**     | argument #2 | `()`    |
+| Name    | Type                                                             | Description | Default |
+| :------ | :--------------------------------------------------------------- | :---------- | :------ |
+| `$arg1` | **[Number](https://sass-lang.com/documentation/values/numbers)** | argument #1 | `0`     |
+| `$arg1` | **[List](https://sass-lang.com/documentation/values/lists)**     | argument #2 | `()`    |
 
 ## Returns
 
@@ -127,26 +147,6 @@ example
 
 + **example-function-alias**
 
-<a id="general-function-example-function-alias"></a>
-
-# @function example-function-alias
-
-> **DEPRECATED!**  
-> example-function-alias is deprecated, instead use example-function
-
-example `function` alias
-
-+ **Group:** General
-+ **Access:** public
-
-## Dependencies
-
-+ **[@function example-function](#general-function-example-function)**
-
-## Alias
-
-+ **example-function**
-
 <a id="general-mixin-example-mixin"></a>
 
 # @mixin example-mixin
@@ -161,11 +161,11 @@ example `mixin`
 
 ## Parameters
 
-| Name       | Type                                                                                                                     | Description                           | Default |
-| :--------- | :----------------------------------------------------------------------------------------------------------------------- | :------------------------------------ | :------ |
-| `arg1`     | **[String](https://sass-lang.com/documentation/values/strings)**                                                         | argument #1 (one of "hoge" or "fuga") | `""`    |
-| `arg2`     | **[Map](https://sass-lang.com/documentation/values/maps)**, **[List](https://sass-lang.com/documentation/values/lists)** | argument #2                           | `()`    |
-| `arg2.key` | **[String](https://sass-lang.com/documentation/values/strings)**                                                         | key `option`                          | `""`    |
+| Name        | Type                                                                                                                     | Description                           | Default |
+| :---------- | :----------------------------------------------------------------------------------------------------------------------- | :------------------------------------ | :------ |
+| `$arg1`     | **[String](https://sass-lang.com/documentation/values/strings)**                                                         | argument #1 (one of "hoge" or "fuga") | `""`    |
+| `$arg2`     | **[Map](https://sass-lang.com/documentation/values/maps)**, **[List](https://sass-lang.com/documentation/values/lists)** | argument #2                           | `()`    |
+| `$arg2.key` | **[String](https://sass-lang.com/documentation/values/strings)**                                                         | key `option`                          | `""`    |
 
 ## Contents
 
