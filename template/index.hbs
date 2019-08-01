@@ -4,11 +4,6 @@
 {{#each this}}
 
 {{!--
-  Group Name
---}}
-# Group: {{normalizeGroupName @key}}
-
-{{!--
   Each items
 --}}
 {{#each this}}
@@ -18,7 +13,7 @@
 {{!--
   Name
 --}}
-# [{{this.context.type}}] {{this.context.name}}
+# {{normalizeContextTypes this.context.type}}{{this.context.name}}
 
 {{!--
   Deprecated
@@ -34,14 +29,15 @@
 {{/each}}
 
 {{!--
-  Access
---}}
-**Access:** {{this.access}}
-
-{{!--
   Description
 --}}
 {{{this.description}}}
+
+{{!--
+  Group & Access
+--}}
++ **Group:** {{#each this.group}}{{normalizeGroupName this}}{{#unless @last}}, {{/unless}}{{/each}}
++ **Access:** {{this.access}}
 
 {{!--
   Type
@@ -50,7 +46,7 @@
 {{#if this.type}}
 ## Type
 
-**{{this.type}}**
+{{normalizeTypes this.type}}
 {{/if}}
 
 {{!--
@@ -58,20 +54,14 @@
   + function, mixin
 --}}
 {{#if this.parameter.[0]}}## Parameters{{/if}}
-
-{{#each this.parameter}}
-+ `{{this.name}}` **{{normalizeTypes this.type}}**{{#if this.description}} {{{trim this.description}}}{{/if}}{{#if this.default}} (default `{{{this.default}}}`){{/if}}
-{{/each}}
+{{> parameterTable value=this.parameter}}
 
 {{!--
   Properties
   + variable
 --}}
 {{#if this.property.[0]}}## Properties{{/if}}
-
-{{#each this.property}}
-+ `{{this.name}}` **{{normalizeTypes this.type}}**{{#if this.description}} {{{trim this.description}}}{{/if}}{{#if this.default}} (default `{{{this.default}}}`){{/if}}
-{{/each}}
+{{> parameterTable value=this.property}}
 
 {{!--
   Content
@@ -90,7 +80,7 @@
 {{#if this.return}}
 ## Returns
 
-**{{normalizeTypes this.return.type}}**{{#if this.return.description}} {{{trim this.return.description}}}{{/if}}
+{{normalizeTypes this.return.type}}{{#if this.return.description}} {{{trim this.return.description}}}{{/if}}
 {{/if}}
 
 {{!--
@@ -133,9 +123,9 @@
 
 {{#each this.require}}
 {{#if this.external}}
-+ [{{this.item.context.type}}] {{#if this.url}}**[{{this.item.context.name}}]({{this.url}})**{{else}}**{{this.item.context.name}}**{{/if}}{{#if this.description}} {{{trim this.description}}}{{/if}}
++ {{#if this.url}}**[{{normalizeContextTypes this.item.context.type}}{{this.item.context.name}}]({{this.url}})**{{else}}**{{normalizeContextTypes this.item.context.type}}{{this.item.context.name}}**{{/if}}{{#if this.description}} {{{trim this.description}}}{{/if}}
 {{else}}
-+ [{{this.item.context.type}}] **[{{this.item.context.name}}](#{{slug this.item.group this.item.context.type this.item.context.name}})**{{#if this.description}} {{{trim this.description}}}{{/if}}
++ **[{{normalizeContextTypes this.item.context.type}}{{this.item.context.name}}](#{{slug this.item.group this.item.context.type this.item.context.name}})**{{#if this.description}} {{{trim this.description}}}{{/if}}
 {{/if}}
 {{/each}}
 
@@ -145,7 +135,7 @@
 {{#if this.usedBy.[0]}}## Dependents{{/if}}
 
 {{#each this.usedBy}}
-+ [{{this.context.type}}] **{{this.context.name}}**{{#if this.description}} {{{trim this.description}}}{{/if}}
++ **{{normalizeContextTypes this.context.type}}{{this.context.name}}**{{#if this.description}} {{{trim this.description}}}{{/if}}
 {{/each}}
 
 {{!--
@@ -171,7 +161,7 @@
 --}}
 {{#if this.see.[0]}}## See{{/if}}
 {{#each this.see}}
-+ [{{this.context.type}}] **[{{this.context.name}}](#{{slug this.group this.context.type this.context.name}})**
++ **[{{normalizeContextTypes this.context.type}}{{this.context.name}}](#{{slug this.group this.context.type this.context.name}})**
 {{/each}}
 
 {{!--

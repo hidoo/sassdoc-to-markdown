@@ -6,7 +6,7 @@
 /// @require {variable} example-variable-private - require private variable
 /// @require {function} example-function - require function
 /// @require {placeholder} example-placeholder - require function
-/// @param {string} $arg1 [""] argument #1 ("hoge"|"fuga")
+/// @param {string} $arg1 [""] argument #1 (one of "hoge" or "fuga")
 /// @param {map | list} $arg2 [()] argument #2
 /// @param {string} $arg2.key [""] key `option`
 /// @content extra content
@@ -24,7 +24,7 @@
 ///   .selector {
 ///     @include example-mixin($arg1: "hoge", $arg2: ()) {
 ///       font-size: 16px;
-///     };
+///     }
 ///   }
 /// @example css - css outputs
 ///   .selector::after {

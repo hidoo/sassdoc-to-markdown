@@ -65,13 +65,13 @@ export const register = (handlebars) => {
 
         Object.entries(types).forEach(([key, {pattern, url}]) => {
           if (pattern.test(rawType)) {
-            type = `[${key}](${url})`;
+            type = `**[${key}](${url})**`;
           }
         });
 
         return type;
       });
 
-    return new handlebars.SafeString(values.join(' | '));
+    return new handlebars.SafeString(values.join(', '));
   });
 };

@@ -1,0 +1,7 @@
+{{#if this.value.[0]}}
+|Name|Type|Description|Default|
+|:--|:--|:--|:--|
+{{/if}}
+{{#each this.value}}
+|`{{this.name}}`|{{normalizeTypes this.type}}|{{#if this.description}}{{{trim this.description}}}{{else}}-{{/if}}|{{#if this.default}}`{{{this.default}}}`{{else}}-{{/if}}|
+{{/each}}
