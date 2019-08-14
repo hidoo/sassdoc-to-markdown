@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/hidoo/unit-sass/compare/v0.1.0...v0.2.0) (2019-08-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency remark to v11.0.1 ([082b110](https://github.com/hidoo/unit-sass/commit/082b110))
+
+
+
+
+
 # 0.1.0 (2019-08-02)
 
 
