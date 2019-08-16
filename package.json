@@ -45,6 +45,6 @@
     "babel-preset-power-assert": "3.0.0",
     "mocha": "6.2.0",
     "power-assert": "1.6.1",
-    "rimraf": "2.6.3"
+    "rimraf": "3.0.0"
   }
 }
