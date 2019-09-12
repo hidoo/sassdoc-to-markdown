@@ -2,11 +2,13 @@ export const register = (handlebars) => {
 
   /**
    * trim whitespaces
+   *
    * @param {String} value value
    * @return {String}
    *
-   * @example
-   *   {{trim value}}
+   * @example ```hbs
+   * {{trim value}}
+   * ```
    */
   handlebars.registerHelper('trim', (value = '') => {
     if (typeof value === 'string') {

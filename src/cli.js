@@ -2,7 +2,8 @@ import fs from 'fs-extra';
 import meow from 'meow';
 import sassdoc2md from '.';
 
-const cli = meow(`
+const cli = meow(
+  `
   Usage
     $ sassdoc2md <src> [dest]
 
@@ -28,56 +29,58 @@ const cli = meow(`
     $ sassdoc2md ./src/scss/*.scss -m ./src/README.md -s API
     $ sassdoc2md ./src/scss/*.scss ./dest/README.md
     $ sassdoc2md ./src/scss/*.scss ./dest/README.md -m ./src/README.md -s API
-`,
-{
-  flags: {
-    markdown: {
-      type: 'string',
-      alias: 'm'
-    },
-    section: {
-      type: 'string',
-      alias: 's',
-      default: 'API'
-    },
+  `,
+  {
+    flags: {
+      markdown: {
+        type: 'string',
+        alias: 'm'
+      },
+      section: {
+        'type': 'string',
+        'alias': 's',
+        'default': 'API'
+      },
 
-    // Customize Options
-    typeOrder: {
-      type: 'string',
-      default: 'variable,placeholder,function,mixin'
-    },
-    template: {
-      type: 'string'
-    },
-    partials: {
-      type: 'string'
-    },
-    helpers: {
-      type: 'string'
-    },
+      // Customize Options
+      typeOrder: {
+        'type': 'string',
+        'default': 'variable,placeholder,function,mixin'
+      },
+      template: {
+        type: 'string'
+      },
+      partials: {
+        type: 'string'
+      },
+      helpers: {
+        type: 'string'
+      },
 
-    // SassDoc Options
-    exclude: {
-      type: 'string'
-    },
-    autofill: {
-      type: 'string'
-    },
-    verbose: {
-      type: 'boolean',
-      alias: 'v'
-    },
-    strict: {
-      type: 'boolean'
-    },
-    debug: {
-      type: 'boolean'
+      // SassDoc Options
+      exclude: {
+        type: 'string'
+      },
+      autofill: {
+        type: 'string'
+      },
+      verbose: {
+        type: 'boolean',
+        alias: 'v'
+      },
+      strict: {
+        type: 'boolean'
+      },
+      debug: {
+        type: 'boolean'
+      }
     }
   }
-});
+);
 
 /**
  * normalize options
+ *
  * @param {Object} options options
  * @return {Object}
  */

@@ -9,6 +9,7 @@ const asyncReadFile = promisify(fs.readFile),
 
 /**
  * default options
+ *
  * @type {Object}
  */
 const defaultOptions = {
@@ -19,6 +20,7 @@ const defaultOptions = {
 
 /**
  * init template
+ *
  * @param {Object} [options={}] options
  *   @param {String} options.template template path
  *   @param {String} options.partials glob pattern of partials
@@ -26,11 +28,13 @@ const defaultOptions = {
  * @return {Function}
  *
  * @example
+ * (async () => {
  *   const template = await initTemplate({
  *     template: 'path/to/template.hbs',
  *     partials: 'path/to/partials/*.hbs',
  *     helpers: 'path/to/helpers/*.js'
  *   });
+ * })();
  */
 export default async function initTemplate(options = {}) {
   const opts = {...defaultOptions, ...options},
@@ -40,17 +44,21 @@ export default async function initTemplate(options = {}) {
 
   // register partials
   await asyncGlob(opts.partials).then((files) => Promise.all(
-    files.map((file) => asyncReadFile(file)
-      .then((content) => {
-        hbs.registerPartial(path.basename(file, path.extname(file)), content.toString());
-      })
+    files.map(
+      (file) => asyncReadFile(file)
+        .then((content) => {
+          hbs.registerPartial(
+            path.basename(file, path.extname(file)),
+            content.toString()
+          );
+        })
     )
   ));
 
   // register helpers
-  await asyncGlob(opts.helpers).then((files) =>
-    files.map((file) => {
-      const helper = require(file); // eslint-disable-line global-require
+  await asyncGlob(opts.helpers).then(
+    (files) => files.forEach((file) => {
+      const helper = require(file); // eslint-disable-line global-require, import/no-dynamic-require
 
       if (typeof helper.register === 'function') {
         helper.register(hbs);

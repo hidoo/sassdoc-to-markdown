@@ -1,11 +1,13 @@
 /**
  * url of document
- * @var {String}
+ *
+ * @type {String}
  */
 const docmentURL = 'https://sass-lang.com/documentation/values/';
 
 /**
  * type mappings
+ *
  * @type {Object}
  */
 const types = {
@@ -30,7 +32,7 @@ const types = {
     url: `${docmentURL}maps`
   },
   Boolean: {
-    pattern: /^[B|b]ool(ean)?$/,
+    pattern: /^[B|b]ool(ean)?$/, // eslint-disable-line prefer-named-capture-group
     url: `${docmentURL}booleans`
   },
   Null: {
@@ -47,11 +49,13 @@ export const register = (handlebars) => {
 
   /**
    * normalize types
+   *
    * @param {String} value value
    * @return {String}
    *
-   * @example
-   *   {{normalizeTypes value}}
+   * @example ```hbs
+   * {{normalizeTypes value}}
+   * ```
    */
   handlebars.registerHelper('normalizeTypes', (value = '') => {
     if (typeof value !== 'string' || value === '') {

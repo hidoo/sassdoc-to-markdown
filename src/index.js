@@ -1,5 +1,5 @@
-import fs from 'fs-extra';
 import {promisify} from 'util';
+import fs from 'fs-extra';
 import remark from 'remark';
 import inject from 'mdast-util-inject';
 import getData from './getData';
@@ -9,6 +9,7 @@ const asyncReadFile = promisify(fs.readFile);
 
 /**
  * default options
+ *
  * @type {Object}
  */
 const defaultOptions = {
@@ -28,6 +29,7 @@ const defaultOptions = {
 
 /**
  * sassdoc to markdown
+ *
  * @param {String|Array<String>} src glob pattern of source files of SassDoc
  * @param {Object} options options
  *   @param {String} [options.markdown=null] markdown that inject document
@@ -37,7 +39,9 @@ const defaultOptions = {
  * @return {Promise<String>}
  *
  * @example
+ * (async () => {
  *   const markdown = await sassdoc2md('./path/to/scss/*.scss');
+ * })();
  */
 export default async function sassdoc2md(src = '', options = {}) {
   if (typeof src !== 'string' || src === '') {

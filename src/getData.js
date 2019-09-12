@@ -2,6 +2,7 @@ import {parse} from 'sassdoc';
 
 /**
  * default options
+ *
  * @type {Object}
  */
 const defaultOptions = {
@@ -15,14 +16,17 @@ const defaultOptions = {
 
 /**
  * get sassdoc data
+ *
  * @param {String|Array<String>} src glob pattern of source files of SassDoc
  * @param {Object} [options={}] options
  *   @param {Array<String>} options.typeOrder order of types
  * @return {Object|null}
  *
  * @example
+ * (async () => {
  *   await getData('./path/to/scss', {});
  *   // => {groupName: [item, ...], 'undefined': [item, ...]}
+ * })();
  */
 export default async function getData(src = '', options = {}) {
   const opts = {...defaultOptions, ...options},
@@ -46,15 +50,20 @@ export default async function getData(src = '', options = {}) {
     }
   });
 
-  return Array.from(items).reduce((prev, [key, value]) => ({
-    ...prev,
-    [key]: value.sort((a, b) => {
-      if (a.context.type === b.context.type) {
-        return a.file.path.localeCompare(b.file.path) ||
-          a.context.line.start - b.context.line.start ||
-          a.context.name.localeCompare(b.context.name);
-      }
-      return typeOrder.indexOf(a.context.type) - typeOrder.indexOf(b.context.type);
-    })
-  }), {});
+  return Array.from(items).reduce((prev, [key, value]) => {
+    return {
+      ...prev,
+      [key]: value.sort((valA, valB) => {
+        const valAType = valA.context.type;
+        const valBType = valB.context.type;
+
+        if (valAType === valBType) {
+          return valA.file.path.localeCompare(valB.file.path) ||
+            valA.context.line.start - valB.context.line.start ||
+            valA.context.name.localeCompare(valB.context.name);
+        }
+        return typeOrder.indexOf(valAType) - typeOrder.indexOf(valBType);
+      })
+    };
+  }, {});
 }

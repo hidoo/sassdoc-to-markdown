@@ -1,4 +1,4 @@
-/* eslint max-len: 0, no-magic-numbers: 0 */
+/* eslint max-len: off, no-magic-numbers: off, no-sync: off */
 
 import assert from 'assert';
 import getData from '../src/getData';
@@ -17,11 +17,12 @@ describe('getData', () => {
       ['./not-exists/*.scss']
     ];
 
-    await Promise.all(cases.map((src) =>
-      getData(src)
-        .then((actual) => {
-          assert(actual === null);
-        })
+    await Promise.all(cases.map(
+      (src) =>
+        getData(src)
+          .then((actual) => {
+            assert(actual === null);
+          })
     ));
   });
 

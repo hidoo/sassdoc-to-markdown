@@ -1,5 +1,6 @@
 /**
  * context type mappings
+ *
  * @type {Object}
  */
 const contextTypes = new Map([
@@ -13,11 +14,13 @@ export const register = (handlebars) => {
 
   /**
    * normalize group name
+   *
    * @param {String} value context type ("variable", "placeholder", "function" or "mixin")
    * @return {String}
    *
-   * @example
-   *   {{normalizeContextTypes value}}
+   * @example ```hbs
+   * {{normalizeContextTypes value}}
+   * ```
    */
   handlebars.registerHelper('normalizeContextTypes', (value = '') => {
     if (contextTypes.has(value)) {

@@ -2,11 +2,13 @@ export const register = (handlebars) => {
 
   /**
    * normalize group name
+   *
    * @param {String} value value
    * @return {String}
    *
-   * @example
-   *   {{normalizeGroupName value}}
+   * @example ```hbs
+   * {{normalizeGroupName value}}
+   * ```
    */
   handlebars.registerHelper('normalizeGroupName', (value = '') => {
     if (value === 'undefined') {

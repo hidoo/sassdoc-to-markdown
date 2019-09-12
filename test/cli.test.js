@@ -1,4 +1,4 @@
-/* eslint max-len: 0, no-magic-numbers: 0 */
+/* eslint max-len: off, no-magic-numbers: off, no-sync: off */
 
 import assert from 'assert';
 import fs from 'fs';
@@ -10,9 +10,9 @@ const asyncExec = promisify(exec);
 
 describe('cli', () => {
 
-  afterEach((done) =>
-    rimraf(`${__dirname}/build/*`, done)
-  );
+  afterEach((done) => {
+    rimraf(`${__dirname}/build/*`, done);
+  });
 
   it('should error if <src> is not set.', async () => {
     const command = [

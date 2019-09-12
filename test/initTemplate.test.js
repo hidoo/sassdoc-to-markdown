@@ -1,4 +1,4 @@
-/* eslint max-len: 0, no-magic-numbers: 0 */
+/* eslint max-len: off, no-magic-numbers: off, no-sync: off */
 
 import assert from 'assert';
 import initTemplate from '../src/initTemplate';
