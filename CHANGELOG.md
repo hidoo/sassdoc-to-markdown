@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/hidoo/unit-sass/compare/v0.3.1...v0.4.0) (2019-09-17)
+
+
+### Bug Fixes
+
+* **deps:** update dependency handlebars to v4.2.0 ([8b56846](https://github.com/hidoo/unit-sass/commit/8b56846))
+* **deps:** update dependency sassdoc to v2.7.1 ([d4c460d](https://github.com/hidoo/unit-sass/commit/d4c460d))
+
+
+
+
+
 # [0.3.0](https://github.com/hidoo/unit-sass/compare/v0.2.0...v0.3.0) (2019-08-21)
 
 **Note:** Version bump only for package @hidoo/sassdoc-to-markdown
