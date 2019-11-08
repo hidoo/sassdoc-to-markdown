@@ -29,7 +29,7 @@
   "license": "MIT",
   "dependencies": {
     "fs-extra": "8.1.0",
-    "glob": "7.1.5",
+    "glob": "7.1.6",
     "handlebars": "4.5.1",
     "mdast-util-inject": "1.1.0",
     "meow": "5.0.0",
