@@ -33,7 +33,7 @@
     "handlebars": "4.5.1",
     "mdast-util-inject": "1.1.0",
     "meow": "5.0.0",
-    "remark": "11.0.1",
+    "remark": "11.0.2",
     "sassdoc": "2.7.1"
   },
   "devDependencies": {
