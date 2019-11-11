@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/hidoo/unit-sass/compare/v0.4.0...v0.4.1) (2019-11-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency glob to v7.1.5 ([f06e880](https://github.com/hidoo/unit-sass/commit/f06e880))
+* **deps:** update dependency glob to v7.1.6 ([78ddc32](https://github.com/hidoo/unit-sass/commit/78ddc32))
+* **deps:** update dependency handlebars to v4.2.1 ([6ff4556](https://github.com/hidoo/unit-sass/commit/6ff4556))
+* **deps:** update dependency handlebars to v4.3.4 ([ed996b3](https://github.com/hidoo/unit-sass/commit/ed996b3))
+* **deps:** update dependency handlebars to v4.4.0 ([3e85ecd](https://github.com/hidoo/unit-sass/commit/3e85ecd))
+* **deps:** update dependency handlebars to v4.4.2 ([7937ced](https://github.com/hidoo/unit-sass/commit/7937ced))
+* **deps:** update dependency handlebars to v4.4.3 ([72d6aaa](https://github.com/hidoo/unit-sass/commit/72d6aaa))
+* **deps:** update dependency handlebars to v4.4.5 ([4893c3c](https://github.com/hidoo/unit-sass/commit/4893c3c))
+* **deps:** update dependency handlebars to v4.5.1 ([5298f1a](https://github.com/hidoo/unit-sass/commit/5298f1a))
+* **deps:** update dependency remark to v11.0.2 ([95ca4b7](https://github.com/hidoo/unit-sass/commit/95ca4b7))
+
+
+
+
+
 # [0.4.0](https://github.com/hidoo/unit-sass/compare/v0.3.1...v0.4.0) (2019-09-17)
 
 
