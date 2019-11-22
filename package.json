@@ -30,7 +30,7 @@
   "dependencies": {
     "fs-extra": "8.1.0",
     "glob": "7.1.6",
-    "handlebars": "4.5.2",
+    "handlebars": "4.5.3",
     "mdast-util-inject": "1.1.0",
     "meow": "5.0.0",
     "remark": "11.0.2",
