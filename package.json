@@ -28,7 +28,7 @@
   "author": "hidoo",
   "license": "MIT",
   "dependencies": {
-    "fs-extra": "8.1.0",
+    "fs-extra": "9.0.0",
     "glob": "7.1.6",
     "handlebars": "4.7.3",
     "mdast-util-inject": "1.1.0",
