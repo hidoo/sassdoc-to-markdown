@@ -100,18 +100,16 @@ function normalizeOptions(options = {}) {
 
 (async () => {
   try {
-    const [src, dest] = cli.input,
-          options = normalizeOptions(cli.flags);
+    const [src, dest] = cli.input;
+    const options = normalizeOptions(cli.flags);
+    const result = await sassdoc2md(src, options);
 
-    await sassdoc2md(src, options)
-      .then((result) => {
-        if (dest) {
-          return fs.outputFile(dest, result);
-        }
-        return console.log(result);
-      });
+    if (dest) {
+      return fs.outputFile(dest, result);
+    }
+    return console.log(result);
   }
   catch (error) {
-    console.error(error.message);
+    return console.error(error.message);
   }
 })();
