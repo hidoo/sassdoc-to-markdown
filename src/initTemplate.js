@@ -58,7 +58,7 @@ export default async function initTemplate(options = {}) {
   // register helpers
   await asyncGlob(opts.helpers).then(
     (files) => files.forEach((file) => {
-      const helper = require(file); // eslint-disable-line global-require, import/no-dynamic-require
+      const helper = require(file); // eslint-disable-line node/global-require, import/no-dynamic-require
 
       if (typeof helper.register === 'function') {
         helper.register(hbs);
