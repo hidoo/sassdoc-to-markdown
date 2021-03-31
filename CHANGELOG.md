@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.4](https://github.com/hidoo/unit-sass/compare/v0.4.2...v0.4.4) (2021-03-31)
+
+
+### Bug Fixes
+
+* **deps:** update dependency fs-extra to v9.0.1 ([f72413e](https://github.com/hidoo/unit-sass/commit/f72413eeeb821834c1e5eea42b71fca78ed97ccb))
+* **deps:** update dependency fs-extra to v9.1.0 ([ae51160](https://github.com/hidoo/unit-sass/commit/ae51160326cd5ab4edd3aff0902b9ffc28e3fa5d))
+* **deps:** update dependency handlebars to v4.7.7 ([ddabfd4](https://github.com/hidoo/unit-sass/commit/ddabfd498cd0d9e9278669b04d6dde86f5c9ab4b))
+* **deps:** update dependency meow to v7 ([eb41854](https://github.com/hidoo/unit-sass/commit/eb4185423ecec6392a9c5451f67b7039e2a68e1e))
+* **deps:** update dependency meow to v7.0.1 ([2b90cf7](https://github.com/hidoo/unit-sass/commit/2b90cf764a203a1e9c157aef1a028cd1d102b29a))
+* **deps:** update dependency meow to v9 ([8e5825d](https://github.com/hidoo/unit-sass/commit/8e5825d2ef438777e0ca3ef1d34470378f0ccb2c))
+* **deps:** update dependency remark to v12.0.1 ([e66822a](https://github.com/hidoo/unit-sass/commit/e66822ab2d01bb273c74f4bc6a58f0c9443e1d03))
+* **deps:** update dependency remark to v13 ([ad1add2](https://github.com/hidoo/unit-sass/commit/ad1add26c6f673fc3ff4f9f523bcc913b67a279f))
+* **deps:** update dependency sassdoc to v2.7.2 ([7633742](https://github.com/hidoo/unit-sass/commit/76337427c587b7759182b65d1fbf7f810c6650eb))
+* **deps:** update dependency sassdoc to v2.7.3 ([e8cafd7](https://github.com/hidoo/unit-sass/commit/e8cafd7fa7070d79828e4a235fd6fe67c16d68f8))
+
+
+
+
+
 ## [0.4.3](https://github.com/hidoo/unit-sass/compare/v0.4.2...v0.4.3) (2021-03-31)
 
 
