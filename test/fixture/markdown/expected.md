@@ -13,11 +13,11 @@ example `variable`
 
 ## Properties
 
-| Name   | Type                                                             | Description | Default     |
-| :----- | :--------------------------------------------------------------- | :---------- | :---------- |
-| `key1` | **[Number](https://sass-lang.com/documentation/values/numbers)** | key1        | `0`         |
-| `key2` | **[Color](https://sass-lang.com/documentation/values/colors)**   | key2        | `#000`      |
-| `key3` | **[String](https://sass-lang.com/documentation/values/strings)** | key3        | `"example"` |
+|Name|Type|Description|Default|
+|:--|:--|:--|:--|
+|`key1`|**[Number](https://sass-lang.com/documentation/values/numbers)**|key1|`0`|
+|`key2`|**[Color](https://sass-lang.com/documentation/values/colors)**|key2|`#000`|
+|`key3`|**[String](https://sass-lang.com/documentation/values/strings)**|key3|`"example"`|
 
 ## Dependents
 
@@ -88,7 +88,7 @@ css outputs
 
 # @function example-function-alias
 
-> **DEPRECATED!**  
+> **DEPRECATED!**\
 > example-function-alias is deprecated, instead use example-function
 
 example `function` alias
@@ -115,10 +115,10 @@ example `function`
 
 ## Parameters
 
-| Name    | Type                                                             | Description | Default |
-| :------ | :--------------------------------------------------------------- | :---------- | :------ |
-| `$arg1` | **[Number](https://sass-lang.com/documentation/values/numbers)** | argument #1 | `0`     |
-| `$arg1` | **[List](https://sass-lang.com/documentation/values/lists)**     | argument #2 | `()`    |
+|Name|Type|Description|Default|
+|:--|:--|:--|:--|
+|`$arg1`|**[Number](https://sass-lang.com/documentation/values/numbers)**|argument #1|`0`|
+|`$arg1`|**[List](https://sass-lang.com/documentation/values/lists)**|argument #2|`()`|
 
 ## Returns
 
@@ -151,8 +151,8 @@ example
 
 # @mixin example-mixin
 
-**[TODO]** update options  
-**[TODO]** update docs
+**\[TODO]** update options\
+**\[TODO]** update docs
 
 example `mixin`
 
@@ -161,11 +161,11 @@ example `mixin`
 
 ## Parameters
 
-| Name        | Type                                                                                                                     | Description                           | Default |
-| :---------- | :----------------------------------------------------------------------------------------------------------------------- | :------------------------------------ | :------ |
-| `$arg1`     | **[String](https://sass-lang.com/documentation/values/strings)**                                                         | argument #1 (one of "hoge" or "fuga") | `""`    |
-| `$arg2`     | **[Map](https://sass-lang.com/documentation/values/maps)**, **[List](https://sass-lang.com/documentation/values/lists)** | argument #2                           | `()`    |
-| `$arg2.key` | **[String](https://sass-lang.com/documentation/values/strings)**                                                         | key `option`                          | `""`    |
+|Name|Type|Description|Default|
+|:--|:--|:--|:--|
+|`$arg1`|**[String](https://sass-lang.com/documentation/values/strings)**|argument #1 (one of "hoge" or "fuga")|`""`|
+|`$arg2`|**[Map](https://sass-lang.com/documentation/values/maps)**, **[List](https://sass-lang.com/documentation/values/lists)**|argument #2|`()`|
+|`$arg2.key`|**[String](https://sass-lang.com/documentation/values/strings)**|key `option`|`""`|
 
 ## Contents
 
