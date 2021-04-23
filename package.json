@@ -37,11 +37,11 @@
     "sassdoc": "2.7.3"
   },
   "devDependencies": {
-    "@babel/cli": "7.13.14",
-    "@babel/core": "7.13.15",
+    "@babel/cli": "7.13.16",
+    "@babel/core": "7.13.16",
     "@babel/node": "7.13.13",
     "@babel/preset-env": "7.13.15",
-    "@babel/register": "7.13.14",
+    "@babel/register": "7.13.16",
     "babel-preset-power-assert": "3.0.0",
     "mocha": "8.3.2",
     "power-assert": "1.6.1",
