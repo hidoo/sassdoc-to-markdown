@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/hidoo/unit-sass/compare/v0.4.4...v0.5.0) (2021-06-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency fs-extra to v10 ([db930a5](https://github.com/hidoo/unit-sass/commit/db930a58f63db1913698fe31d753a6ef97a87ede))
+* **deps:** update dependency glob to v7.1.7 ([ee0999e](https://github.com/hidoo/unit-sass/commit/ee0999e8e366b128c9111c4121398abbf9918530))
+
+
+
+
+
 ## [0.4.4](https://github.com/hidoo/unit-sass/compare/v0.4.2...v0.4.4) (2021-03-31)
 
 
