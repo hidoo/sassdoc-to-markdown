@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/hidoo/unit-sass/compare/v0.6.0...v0.7.0) (2022-01-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency glob to v7.2.0 ([42ec58a](https://github.com/hidoo/unit-sass/commit/42ec58a515f52c9c89d3d19480315b5b99b25be9))
+
+
+
+
+
 # [0.6.0](https://github.com/hidoo/unit-sass/compare/v0.5.0...v0.6.0) (2021-06-09)
 
 **Note:** Version bump only for package @hidoo/sassdoc-to-markdown
