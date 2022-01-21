@@ -38,9 +38,9 @@
   },
   "devDependencies": {
     "@babel/cli": "7.16.8",
-    "@babel/core": "7.16.7",
+    "@babel/core": "7.16.10",
     "@babel/node": "7.16.8",
-    "@babel/preset-env": "7.16.8",
+    "@babel/preset-env": "7.16.11",
     "@babel/register": "7.16.9",
     "babel-preset-power-assert": "3.0.0",
     "mocha": "9.1.4",
