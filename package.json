@@ -34,7 +34,7 @@
     "mdast-util-inject": "1.1.0",
     "meow": "9.0.0",
     "remark": "13.0.0",
-    "sassdoc": "2.7.3"
+    "sassdoc": "2.7.4"
   },
   "devDependencies": {
     "@babel/cli": "7.16.8",
