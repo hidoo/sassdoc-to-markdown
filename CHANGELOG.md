@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/hidoo/unit-sass/compare/v0.7.0...v0.8.0) (2022-07-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency glob to v7.2.3 ([0fe028d](https://github.com/hidoo/unit-sass/commit/0fe028d939f2592945ed978a70a75279f24344dc))
+* **deps:** update dependency sassdoc to v2.7.4 ([739ef05](https://github.com/hidoo/unit-sass/commit/739ef054615c9dd0a9a3bc28b8363a058cb54de5))
+
+
+
+
+
 # [0.7.0](https://github.com/hidoo/unit-sass/compare/v0.6.0...v0.7.0) (2022-01-20)
 
 
