@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/hidoo/unit-sass/compare/v0.8.0...v0.9.0) (2023-04-17)
+
+
+### Bug Fixes
+
+* **deps:** update dependency fs-extra to v10.1.0 ([a4523a8](https://github.com/hidoo/unit-sass/commit/a4523a842a265b21df43dc2751161c7f588e0e5f))
+
+
+
+
+
 # [0.8.0](https://github.com/hidoo/unit-sass/compare/v0.7.0...v0.8.0) (2022-07-13)
 
 
