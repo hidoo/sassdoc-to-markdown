@@ -1,12 +1,10 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import url from 'node:url';
-import { promisify } from 'util';
-import glob from 'glob';
+import { glob } from 'glob';
 import Handlebars from 'handlebars';
 
 const dirname = path.dirname(url.fileURLToPath(import.meta.url));
-const asyncGlob = promisify(glob);
 
 /**
  * default options
@@ -43,7 +41,7 @@ export default async function initTemplate(options = {}) {
 
   // register partials
   {
-    const files = await asyncGlob(opts.partials);
+    const files = await glob(opts.partials);
 
     await Promise.all(
       files.map(async (file) => {
@@ -56,7 +54,7 @@ export default async function initTemplate(options = {}) {
 
   // register helpers
   {
-    const files = await asyncGlob(opts.helpers);
+    const files = await glob(opts.helpers);
 
     await Promise.all(
       files.map(async (file) => {
