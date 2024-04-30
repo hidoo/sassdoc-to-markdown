@@ -1,7 +1,7 @@
 /**
  * context type mappings
  *
- * @type {Object}
+ * @type {Map}
  */
 const contextTypes = new Map([
   ['variable', '$'],
@@ -11,13 +11,11 @@ const contextTypes = new Map([
 ]);
 
 export const register = (handlebars) => {
-
   /**
    * normalize group name
    *
    * @param {String} value context type ("variable", "placeholder", "function" or "mixin")
    * @return {String}
-   *
    * @example ```hbs
    * {{normalizeContextTypes value}}
    * ```

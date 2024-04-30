@@ -1,54 +1,74 @@
-/* eslint max-len: off, no-magic-numbers: off, no-sync: off */
-
-import assert from 'assert';
-import initTemplate from '../src/initTemplate';
+import assert from 'node:assert';
+import path from 'node:path';
+import url from 'node:url';
+import initTemplate from '../src/initTemplate.js';
 
 describe('initTemplate', () => {
+  let dirname = null;
+  let fixtureDir = null;
 
-  it('should return function.', async () => {
-    const actual = await initTemplate();
-
-    assert(typeof actual === 'function');
+  before(() => {
+    dirname = path.dirname(url.fileURLToPath(import.meta.url));
+    fixtureDir = path.join(dirname, 'fixture');
   });
 
-  it('should use specified template if argument "options.template" is set.', async () => {
-    const actual = await initTemplate({
-            template: `${__dirname}/fixture/template/exist.hbs`
-          }),
-          rendered = actual({message: 'hoge'});
+  context('if no template specified by options.template is found.', () => {
+    it('should throw error.', async () => {
+      let err = null;
 
-    assert(typeof actual === 'function');
-    assert(rendered === 'specified template hoge.\n');
+      try {
+        await initTemplate({ template: 'not-exist.hbs' });
+      } catch (error) {
+        err = error;
+      }
+
+      assert(err instanceof Error);
+    });
   });
 
-  it('should throw error if template file that specified by argument "options.template" does not exists.', async () => {
-    try {
-      await initTemplate({template: 'not-exist.hbs'});
-    }
-    catch (error) {
-      assert(error instanceof Error);
-    }
-  });
+  context('if templates specified by options.template are found.', () => {
+    it('should return function.', async () => {
+      const actual = await initTemplate();
 
-  it('should load helpers if helper files that specified by argument "options.helpers" exists.', async () => {
-    const actual = await initTemplate({
-            template: `${__dirname}/fixture/template/with-helpers.hbs`,
-            helpers: `${__dirname}/fixture/helpers/*.js`
-          }),
-          rendered = actual({message: 'hoge'});
+      assert(typeof actual, 'function');
+    });
 
-    assert(typeof actual === 'function');
-    assert(rendered === 'specified helpers hoge.\n');
-  });
+    context('with options.template.', () => {
+      it('should return function compiled from the specified template.', async () => {
+        const actual = await initTemplate({
+          template: path.join(fixtureDir, 'template', 'exist.hbs')
+        });
+        const rendered = actual({ message: 'hoge' });
 
-  it('should load partials if partial files that specified by argument "options.partials" exists.', async () => {
-    const actual = await initTemplate({
-            template: `${__dirname}/fixture/template/with-partials.hbs`,
-            partials: `${__dirname}/fixture/template/partials/*.hbs`
-          }),
-          rendered = actual({message: 'hoge'});
+        assert.equal(typeof actual, 'function');
+        assert.equal(rendered, 'specified template hoge.\n');
+      });
+    });
 
-    assert(typeof actual === 'function');
-    assert(rendered === 'specified partials hoge.\n');
+    context('with options.helpers.', () => {
+      it('should return function compiled with the specified helpers.', async () => {
+        const actual = await initTemplate({
+          template: path.join(fixtureDir, 'template', 'with-helpers.hbs'),
+          helpers: `${fixtureDir}/helpers/*.js`
+        });
+        const rendered = actual({ message: 'hoge' });
+
+        assert.equal(typeof actual, 'function');
+        assert.equal(rendered, 'specified helpers hoge.\n');
+      });
+    });
+
+    context('with options.partials.', () => {
+      it('should return function compiled with the specified partials.', async () => {
+        const actual = await initTemplate({
+          template: path.join(fixtureDir, 'template', 'with-partials.hbs'),
+          partials: `${fixtureDir}/template/partials/*.hbs`
+        });
+        const rendered = actual({ message: 'hoge' });
+
+        assert.equal(typeof actual, 'function');
+        assert.equal(rendered, 'specified partials hoge.\n');
+      });
+    });
   });
 });

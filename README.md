@@ -5,7 +5,7 @@
 ## Installation
 
 ```sh
-$ npm install @hidoo/sassdoc-to-markdown
+npm install @hidoo/sassdoc-to-markdown
 ```
 
 ## Usage
@@ -43,16 +43,15 @@ Examples
 ```js
 import sassdoc2md from '@hidoo/sassdoc-to-markdown';
 
-sassdoc2md('./src/scss/*.scss')
-  .then((markdown) => {
-    console.log(markdown);
-  });
+const markdown = await sassdoc2md('./src/scss/*.scss');
+
+console.log(markdown);
 ```
 
 ## Test
 
 ```sh
-$ yarn test
+pnpm test
 ```
 
 ## License

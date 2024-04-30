@@ -1,4 +1,4 @@
-import {parse} from 'sassdoc';
+import { parse } from 'sassdoc';
 
 /**
  * default options
@@ -6,22 +6,16 @@ import {parse} from 'sassdoc';
  * @type {Object}
  */
 const defaultOptions = {
-  typeOrder: [
-    'variable',
-    'placeholder',
-    'function',
-    'mixin'
-  ]
+  typeOrder: ['variable', 'placeholder', 'function', 'mixin']
 };
 
 /**
  * get sassdoc data
  *
  * @param {String|Array<String>} src glob pattern of source files of SassDoc
- * @param {Object} [options={}] options
- *   @param {Array<String>} options.typeOrder order of types
+ * @param {Object} options options
+ * @param {Array<String>} options.typeOrder order of types
  * @return {Object|null}
- *
  * @example
  * (async () => {
  *   await getData('./path/to/scss', {});
@@ -29,9 +23,9 @@ const defaultOptions = {
  * })();
  */
 export default async function getData(src = '', options = {}) {
-  const opts = {...defaultOptions, ...options},
-        {typeOrder, ...restOpts} = opts,
-        parsedData = await parse(src, restOpts);
+  const opts = { ...defaultOptions, ...options };
+  const { typeOrder, ...restOpts } = opts;
+  const parsedData = await parse(src, restOpts);
 
   if (!Array.isArray(parsedData) || !parsedData.length) {
     return null;
@@ -44,8 +38,7 @@ export default async function getData(src = '', options = {}) {
 
     if (items.has(group)) {
       items.set(group, [...items.get(group), item]);
-    }
-    else {
+    } else {
       items.set(group, [item]);
     }
   });
@@ -58,9 +51,11 @@ export default async function getData(src = '', options = {}) {
         const valBType = valB.context.type;
 
         if (valAType === valBType) {
-          return valA.file.path.localeCompare(valB.file.path) ||
+          return (
+            valA.file.path.localeCompare(valB.file.path) ||
             valA.context.line.start - valB.context.line.start ||
-            valA.context.name.localeCompare(valB.context.name);
+            valA.context.name.localeCompare(valB.context.name)
+          );
         }
         return typeOrder.indexOf(valAType) - typeOrder.indexOf(valBType);
       })

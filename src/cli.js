@@ -1,6 +1,6 @@
-import fs from 'fs-extra';
+import fs from 'node:fs/promises';
 import meow from 'meow';
-import sassdoc2md from '.';
+import sassdoc2md from './index.js';
 
 const cli = meow(
   `
@@ -37,15 +37,15 @@ const cli = meow(
         alias: 'm'
       },
       section: {
-        'type': 'string',
-        'alias': 's',
-        'default': 'API'
+        type: 'string',
+        alias: 's',
+        default: 'API'
       },
 
       // Customize Options
       typeOrder: {
-        'type': 'string',
-        'default': 'variable,placeholder,function,mixin'
+        type: 'string',
+        default: 'variable,placeholder,function,mixin'
       },
       template: {
         type: 'string'
@@ -87,29 +87,34 @@ const cli = meow(
 function normalizeOptions(options = {}) {
   const arrayOpts = ['typeOrder', 'exclude', 'autofill'];
 
-  return Object.entries(options)
-    .reduce((prev, [key, value]) => {
-      let values = value;
+  return Object.entries(options).reduce((prev, [key, value]) => {
+    let values = value;
 
-      if (arrayOpts.includes(key)) {
-        values = value.split(',').map((val) => val.trim());
-      }
-      return {...prev, [key]: values};
-    }, {});
+    if (arrayOpts.includes(key)) {
+      values = value.split(',').map((val) => val.trim());
+    }
+    return { ...prev, [key]: values };
+  }, {});
 }
 
-(async () => {
+/**
+ * main process
+ *
+ * @return {Promise<void>}
+ */
+async function main() {
   try {
     const [src, dest] = cli.input;
     const options = normalizeOptions(cli.flags);
     const result = await sassdoc2md(src, options);
 
     if (dest) {
-      return fs.outputFile(dest, result);
+      return fs.writeFile(dest, result);
     }
     return console.log(result);
-  }
-  catch (error) {
+  } catch (error) {
     return console.error(error.message);
   }
-})();
+}
+
+await main();

@@ -1,11 +1,9 @@
 export const register = (handlebars) => {
-
   /**
-   * trim whitespaces
+   * trim white spaces
    *
    * @param {String} value value
    * @return {String}
-   *
    * @example ```hbs
    * {{trim value}}
    * ```

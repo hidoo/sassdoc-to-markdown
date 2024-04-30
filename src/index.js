@@ -1,16 +1,17 @@
-import {promisify} from 'util';
-import fs from 'fs-extra';
+import fs from 'node:fs/promises';
 import remark from 'remark';
 import inject from 'mdast-util-inject';
-import getData from './getData';
-import initTemplate from './initTemplate';
-
-const asyncReadFile = promisify(fs.readFile);
+import getData from './getData.js';
+import initTemplate from './initTemplate.js';
 
 /**
  * default options
  *
- * @type {Object}
+ * @typedef {Object} defaultOptions default options
+ * @property {String} markdown markdown that inject document
+ * @property {String} section section that inject to markdown
+ * @property {Object} remarkParseOptions options for remark.parse
+ * @property {Object} remarkStringifyOptions options for remark.stringify
  */
 const defaultOptions = {
   markdown: null,
@@ -31,13 +32,8 @@ const defaultOptions = {
  * sassdoc to markdown
  *
  * @param {String|Array<String>} src glob pattern of source files of SassDoc
- * @param {Object} options options
- *   @param {String} [options.markdown=null] markdown that inject document
- *   @param {String} [options.section='API'] section that inject to markdown
- *   @param {Object} [options.remarkParseOptions={}] options for remark.parse
- *   @param {Object} [options.remarkStringifyOptions={}] options for remark.stringify
+ * @param {defaultOptions} options options
  * @return {Promise<String>}
- *
  * @example
  * (async () => {
  *   const markdown = await sassdoc2md('./path/to/scss/*.scss');
@@ -49,25 +45,25 @@ export default async function sassdoc2md(src = '', options = {}) {
   }
 
   const {
-          markdown,
-          section,
-          remarkParseOptions,
-          remarkStringifyOptions,
-          ...restOpts
-        } = {...defaultOptions, ...options},
-        data = await getData(src, restOpts);
+    markdown,
+    section,
+    remarkParseOptions,
+    remarkStringifyOptions,
+    ...restOpts
+  } = { ...defaultOptions, ...options };
+  const data = await getData(src, restOpts);
 
   if (!data) {
     throw new Error('Could not find anything to document.');
   }
 
-  const parser = remark().use({settings: remarkParseOptions}),
-        renderer = remark().use({settings: remarkStringifyOptions}),
-        template = await initTemplate(restOpts),
-        ast = parser.parse(template(data));
+  const parser = remark().use({ settings: remarkParseOptions }),
+    renderer = remark().use({ settings: remarkStringifyOptions }),
+    template = await initTemplate(restOpts),
+    ast = parser.parse(template(data));
 
   if (typeof markdown === 'string') {
-    const targetAst = parser.parse(await asyncReadFile(markdown));
+    const targetAst = parser.parse(await fs.readFile(markdown));
 
     if (!inject(section, targetAst, ast)) {
       throw new Error(`Target section "${section}" is not found.`);

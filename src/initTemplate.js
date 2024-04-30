@@ -1,32 +1,32 @@
-import fs from 'fs';
-import path from 'path';
-import {promisify} from 'util';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import url from 'node:url';
+import { promisify } from 'util';
 import glob from 'glob';
 import Handlebars from 'handlebars';
 
-const asyncReadFile = promisify(fs.readFile),
-      asyncGlob = promisify(glob);
+const dirname = path.dirname(url.fileURLToPath(import.meta.url));
+const asyncGlob = promisify(glob);
 
 /**
  * default options
  *
- * @type {Object}
+ * @typedef {Object} defaultOptions default options
+ * @property {String} template template path
+ * @property {String} partials glob pattern of partials
+ * @property {String} helpers glob pattern of helpers
  */
 const defaultOptions = {
-  template: path.resolve(__dirname, '../template/index.hbs'),
-  partials: path.resolve(__dirname, '../template/partials/*.hbs'),
-  helpers: path.resolve(__dirname, './helpers/**/*.js')
+  template: path.resolve(dirname, '../template/index.hbs'),
+  partials: path.resolve(dirname, '../template/partials/*.hbs'),
+  helpers: path.resolve(dirname, './helpers/**/*.js')
 };
 
 /**
  * init template
  *
- * @param {Object} [options={}] options
- *   @param {String} options.template template path
- *   @param {String} options.partials glob pattern of partials
- *   @param {String} options.helpers glob pattern of helpers
- * @return {Function}
- *
+ * @param {defaultOptions} options options
+ * @return {Promise<import('handlebars').Template>}
  * @example
  * (async () => {
  *   const template = await initTemplate({
@@ -37,34 +37,37 @@ const defaultOptions = {
  * })();
  */
 export default async function initTemplate(options = {}) {
-  const opts = {...defaultOptions, ...options},
-        hbs = Handlebars.create(),
-        template = await asyncReadFile(opts.template)
-          .then((content) => content.toString());
+  const opts = { ...defaultOptions, ...options };
+  const hbs = Handlebars.create();
+  const template = (await fs.readFile(opts.template)).toString();
 
   // register partials
-  await asyncGlob(opts.partials).then((files) => Promise.all(
-    files.map(
-      (file) => asyncReadFile(file)
-        .then((content) => {
-          hbs.registerPartial(
-            path.basename(file, path.extname(file)),
-            content.toString()
-          );
-        })
-    )
-  ));
+  {
+    const files = await asyncGlob(opts.partials);
+
+    await Promise.all(
+      files.map(async (file) => {
+        const content = (await fs.readFile(file)).toString();
+
+        hbs.registerPartial(path.basename(file, path.extname(file)), content);
+      })
+    );
+  }
 
   // register helpers
-  await asyncGlob(opts.helpers).then(
-    (files) => files.forEach((file) => {
-      const helper = require(file); // eslint-disable-line node/global-require, import/no-dynamic-require
+  {
+    const files = await asyncGlob(opts.helpers);
 
-      if (typeof helper.register === 'function') {
-        helper.register(hbs);
-      }
-    })
-  );
+    await Promise.all(
+      files.map(async (file) => {
+        const helper = await import(file);
+
+        if (typeof helper.register === 'function') {
+          helper.register(hbs);
+        }
+      })
+    );
+  }
 
   return hbs.compile(template);
 }

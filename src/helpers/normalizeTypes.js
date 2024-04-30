@@ -46,13 +46,11 @@ const types = {
 };
 
 export const register = (handlebars) => {
-
   /**
    * normalize types
    *
    * @param {String} value value
    * @return {String}
-   *
    * @example ```hbs
    * {{normalizeTypes value}}
    * ```
@@ -62,19 +60,18 @@ export const register = (handlebars) => {
       return value;
     }
 
-    const values = value.split('|')
-      .map((val) => {
-        const rawType = val.trim();
-        let type = rawType;
+    const values = value.split('|').map((val) => {
+      const rawType = val.trim();
+      let type = rawType;
 
-        Object.entries(types).forEach(([key, {pattern, url}]) => {
-          if (pattern.test(rawType)) {
-            type = `**[${key}](${url})**`;
-          }
-        });
-
-        return type;
+      Object.entries(types).forEach(([key, { pattern, url }]) => {
+        if (pattern.test(rawType)) {
+          type = `**[${key}](${url})**`;
+        }
       });
+
+      return type;
+    });
 
     return new handlebars.SafeString(values.join(', '));
   });

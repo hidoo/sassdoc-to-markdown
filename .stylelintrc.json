@@ -1,0 +1,14 @@
+{
+  "$scheme": "https://json.schemastore.org/stylelintrc.json",
+  "extends": ["@hidoo/stylelint-config", "@hidoo/stylelint-config/+order"],
+  "overrides": [
+    {
+      "files": ["**/*.scss"],
+      "extends": ["@hidoo/stylelint-config/+scss"],
+      "rules": {
+        "scss/at-use-no-unnamespaced": null,
+        "scss/no-unused-private-members": null
+      }
+    }
+  ]
+}

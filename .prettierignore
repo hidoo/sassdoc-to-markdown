@@ -1,0 +1,4 @@
+CHANGELOG.md
+pnpm-lock.yaml
+*.hbs
+test/fixture/**/*.md

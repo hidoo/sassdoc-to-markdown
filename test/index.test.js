@@ -1,78 +1,124 @@
-/* eslint max-len: off, no-magic-numbers: off, no-sync: off */
+import assert from 'node:assert';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import url from 'node:url';
+import sassdoc2md from '../src/index.js';
 
-import assert from 'assert';
-import fs from 'fs';
-import sassdoc2md from '../src';
+/**
+ * read built file
+ *
+ * @param {String} file filename
+ * @return {String}
+ */
+async function readBuiltFile(file) {
+  const content = await fs.readFile(file);
+
+  return content.toString().trim();
+}
 
 describe('sassdoc2md', () => {
+  let dirname = null;
+  let fixtureDir = null;
 
-  it('should return markdown string that documentaized by SassDoc.', async () => {
-    const src = `${__dirname}/fixture/**/*.scss`,
-          actual = await sassdoc2md(src),
-          expected = fs.readFileSync(`${__dirname}/fixture/markdown/expected.md`).toString();
-
-    assert(typeof actual === 'string');
-    assert(actual === expected);
+  before(() => {
+    dirname = path.dirname(url.fileURLToPath(import.meta.url));
+    fixtureDir = path.join(dirname, 'fixture');
   });
 
-  it('should throw error if SassDoc could not find anything to document.', async () => {
-    try {
-      const src = './no-exists/*.scss';
+  context('by default.', () => {
+    it('should return markdown string documented by SassDoc.', async () => {
+      const src = `${fixtureDir}/**/*.scss`;
+      const actual = await sassdoc2md(src);
+      const expected = await readBuiltFile(
+        path.join(fixtureDir, 'markdown', 'expected.md')
+      );
 
-      await sassdoc2md(src);
-    }
-    catch (error) {
-      assert(error instanceof Error);
-    }
+      assert.equal(typeof actual, 'string');
+      assert.equal(actual.trim(), expected);
+    });
+
+    context('if no document is found anything.', () => {
+      it('should throw error.', async () => {
+        let err = null;
+
+        try {
+          await sassdoc2md('./no-exists/*.scss');
+        } catch (error) {
+          err = error;
+        }
+
+        assert(err instanceof Error);
+      });
+    });
   });
 
-  it('should return markdown string that injected document if argument "options.markdown" is set.', async () => {
-    const src = `${__dirname}/fixture/**/*.scss`,
-          options = {markdown: `${__dirname}/fixture/markdown/docs.md`},
-          actual = await sassdoc2md(src, options),
-          expected = fs.readFileSync(`${__dirname}/fixture/markdown/expected-markdown.md`).toString();
+  context('with options.markdown.', () => {
+    it('should return markdown string that injected document.', async () => {
+      const src = `${fixtureDir}/**/*.scss`;
+      const options = {
+        markdown: path.join(fixtureDir, 'markdown', 'docs.md')
+      };
+      const actual = await sassdoc2md(src, options);
+      const expected = await readBuiltFile(
+        path.join(fixtureDir, 'markdown', 'expected-markdown.md')
+      );
 
-    assert(typeof actual === 'string');
-    assert(actual === expected);
+      assert.equal(typeof actual, 'string');
+      assert.equal(actual.trim(), expected);
+    });
+
+    context('if no markdown file is found.', () => {
+      it('should throw error.', async () => {
+        let err = null;
+
+        try {
+          const src = `${fixtureDir}/**/*.scss`;
+          const options = { markdown: 'not-exist/docs.md' };
+
+          await sassdoc2md(src, options);
+        } catch (error) {
+          err = error;
+        }
+
+        assert(err instanceof Error);
+      });
+    });
   });
 
-  it('should throw error if markdown specified by argument "options.markdown" does not found.', async () => {
-    try {
-      const src = `${__dirname}/fixture/**/*.scss`,
-            options = {markdown: 'not-exist/docs.md'};
+  context('with options.section.', () => {
+    it('should return markdown string that injected document.', async () => {
+      const src = `${fixtureDir}/**/*.scss`;
+      const options = {
+        markdown: path.join(fixtureDir, 'markdown', 'docs.md'),
+        section: 'License'
+      };
+      const actual = await sassdoc2md(src, options);
+      const expected = await readBuiltFile(
+        path.join(fixtureDir, 'markdown', 'expected-section.md')
+      );
 
-      await sassdoc2md(src, options);
-    }
-    catch (error) {
-      assert(error instanceof Error);
-    }
-  });
+      assert.equal(typeof actual, 'string');
+      assert.equal(actual.trim(), expected);
+    });
 
-  it('should return markdown string that injected document to specified section if argument "options.section" is set.', async () => {
-    const src = `${__dirname}/fixture/**/*.scss`,
-          options = {
-            markdown: `${__dirname}/fixture/markdown/docs.md`,
-            section: 'License'
-          },
-          actual = await sassdoc2md(src, options),
-          expected = fs.readFileSync(`${__dirname}/fixture/markdown/expected-section.md`).toString();
+    context('if no section is found.', () => {
+      it('should throw error.', async () => {
+        let err = null;
 
-    assert(typeof actual === 'string');
-    assert(actual === expected);
-  });
+        try {
+          const src = `${fixtureDir}/**/*.scss`;
+          const options = {
+            markdown: path.join(fixtureDir, 'markdown', 'docs.md'),
+            section: 'Section Not Exists'
+          };
 
-  it('should throw error if target section specified by argument "options.section" does not found.', async () => {
-    try {
-      const src = `${__dirname}/fixture/**/*.scss`,
-            options = {
-              markdown: `${__dirname}/fixture/markdown/docs.md`,
-              section: 'Section Not Exists'
-            };
+          await sassdoc2md(src, options);
+        } catch (error) {
+          err = error;
+        }
 
-      await sassdoc2md(src, options);
-    }
-    catch (error) {
-      assert(error instanceof Error);
-    }
+        assert(err instanceof Error);
+      });
+    });
   });
 });

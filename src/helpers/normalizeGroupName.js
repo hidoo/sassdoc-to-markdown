@@ -1,11 +1,9 @@
 export const register = (handlebars) => {
-
   /**
    * normalize group name
    *
    * @param {String} value value
    * @return {String}
-   *
    * @example ```hbs
    * {{normalizeGroupName value}}
    * ```
@@ -15,7 +13,7 @@ export const register = (handlebars) => {
       return new handlebars.SafeString('General');
     }
     return new handlebars.SafeString(
-      `${value.charAt(0).toUpperCase()}${value.slice(1)}` // eslint-disable-line no-magic-numbers
+      `${value.charAt(0).toUpperCase()}${value.slice(1)}`
     );
   });
 };
