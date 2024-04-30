@@ -1,6 +1,6 @@
 {
   "name": "@hidoo/sassdoc-to-markdown",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "description": "Generate markdown documentation from SassDoc comments.",
   "packageManager": "pnpm@9.0.6",
   "engines": {
