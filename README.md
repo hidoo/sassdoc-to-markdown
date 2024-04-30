@@ -2,7 +2,7 @@
 
 [![Test](https://github.com/hidoo/sassdoc-to-markdown/actions/workflows/test.yml/badge.svg)](https://github.com/hidoo/sassdoc-to-markdown/actions/workflows/test.yml)
 
-> Generate markdown document use SassDoc.
+> Generate markdown documentation from SassDoc comments.
 
 ## Installation
 
