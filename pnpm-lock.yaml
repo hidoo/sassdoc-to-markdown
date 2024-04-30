@@ -432,9 +432,6 @@ packages:
   '@types/semver@7.5.8':
     resolution: {integrity: sha512-I8EUhyrgfLrcTkzV3TSsGyl1tSuPrEDzr0yd5m90UgNxQkyDXULk3b6MlQqTCpZpNtWe1K0hzclnZkTcLBe2UQ==}
 
-  '@types/unist@2.0.10':
-    resolution: {integrity: sha512-IfYcSBWE3hLpBg8+X2SEa8LVkJdJEkT2Ese2aaLs3ptGdVtABxndrMaxuFlQ1qdFf9Q5rDvDpxI3WwgvKFAsQA==}
-
   '@types/unist@3.0.2':
     resolution: {integrity: sha512-dqId9J8K/vGi5Zr7oo212BGii5m3q5Hxlkwy3WpYuKPklmBEvsbMYYyLxAQpSffdLl/gdW0XUpKWFvYmyoWCoQ==}
 
@@ -2261,6 +2258,10 @@ packages:
     resolution: {integrity: sha512-RHiac9mvaRw0x3AYRgDC1CxAP7HTcNrrECeA8YYJeWnpo+2Q5CegtZjaotWTWxDG3UeGA1coE05iH1mPjT/2mg==}
     engines: {node: '>=16 || 14 >=14.17'}
 
+  minimatch@9.0.4:
+    resolution: {integrity: sha512-KqWh+VchfxcMNRAJjj2tnsSJdNbHsVgnkBhTNrW7AjVo6OvLtxw8zfT9oLw1JSohlFzJ8jCoTgaoXvJ+kHt6fw==}
+    engines: {node: '>=16 || 14 >=14.17'}
+
   minimist@1.2.8:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
 
@@ -3840,7 +3841,7 @@ snapshots:
 
   '@types/mdast@4.0.3':
     dependencies:
-      '@types/unist': 2.0.10
+      '@types/unist': 3.0.2
 
   '@types/minimatch@3.0.5': {}
 
@@ -3857,8 +3858,6 @@ snapshots:
       '@types/node': 20.12.7
 
   '@types/semver@7.5.8': {}
-
-  '@types/unist@2.0.10': {}
 
   '@types/unist@3.0.2': {}
 
@@ -5031,7 +5030,7 @@ snapshots:
     dependencies:
       foreground-child: 3.1.1
       jackspeak: 2.3.6
-      minimatch: 9.0.3
+      minimatch: 9.0.4
       minipass: 7.0.4
       path-scurry: 1.10.2
 
@@ -5966,6 +5965,10 @@ snapshots:
       brace-expansion: 2.0.1
 
   minimatch@9.0.3:
+    dependencies:
+      brace-expansion: 2.0.1
+
+  minimatch@9.0.4:
     dependencies:
       brace-expansion: 2.0.1
 
