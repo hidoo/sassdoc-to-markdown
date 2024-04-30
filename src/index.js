@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises';
-import remark from 'remark';
+import { remark } from 'remark';
+import remarkGfm from 'remark-gfm';
 import inject from 'mdast-util-inject';
 import getData from './getData.js';
 import initTemplate from './initTemplate.js';
@@ -10,20 +11,20 @@ import initTemplate from './initTemplate.js';
  * @typedef {Object} defaultOptions default options
  * @property {String} markdown markdown that inject document
  * @property {String} section section that inject to markdown
- * @property {Object} remarkParseOptions options for remark.parse
- * @property {Object} remarkStringifyOptions options for remark.stringify
+ * @property {Object} remarkGfmOptions options for remark-gfm
+ * @property {Object} remarkStringifyOptions options for remark-stringify
  */
 const defaultOptions = {
   markdown: null,
   section: 'API',
-  remarkParseOptions: {
-    gfm: true
+  remarkGfmOptions: {
+    tablePipeAlign: false,
+    tableCellPadding: false
   },
   remarkStringifyOptions: {
-    gfm: true,
     fences: true,
     bullet: '+',
-    listItemIndent: '1',
+    listItemIndent: 'one',
     emphasis: '*'
   }
 };
@@ -47,28 +48,32 @@ export default async function sassdoc2md(src = '', options = {}) {
   const {
     markdown,
     section,
-    remarkParseOptions,
+    remarkGfmOptions,
     remarkStringifyOptions,
-    ...restOpts
-  } = { ...defaultOptions, ...options };
-  const data = await getData(src, restOpts);
+    ...opts
+  } = {
+    ...defaultOptions,
+    ...options
+  };
+  const data = await getData(src, opts);
 
   if (!data) {
     throw new Error('Could not find anything to document.');
   }
 
-  const parser = remark().use({ settings: remarkParseOptions }),
-    renderer = remark().use({ settings: remarkStringifyOptions }),
-    template = await initTemplate(restOpts),
-    ast = parser.parse(template(data));
+  const template = await initTemplate(opts);
+  const processor = await remark()
+    .data({ settings: remarkStringifyOptions })
+    .use(remarkGfm, remarkGfmOptions);
+  const ast = processor.parse(template(data));
 
   if (typeof markdown === 'string') {
-    const targetAst = parser.parse(await fs.readFile(markdown));
+    const targetAst = processor.parse(await fs.readFile(markdown));
 
     if (!inject(section, targetAst, ast)) {
       throw new Error(`Target section "${section}" is not found.`);
     }
-    return renderer.stringify(targetAst);
+    return processor.stringify(targetAst);
   }
-  return renderer.stringify(ast);
+  return processor.stringify(ast);
 }
