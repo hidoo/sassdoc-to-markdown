@@ -14,7 +14,8 @@
     {
       "files": ["src/**/*.js"],
       "rules": {
-        "no-magic-numbers": "off"
+        "no-magic-numbers": "off",
+        "import/no-unresolved": "warn"
       }
     },
     {

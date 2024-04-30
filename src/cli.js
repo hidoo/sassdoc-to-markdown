@@ -31,14 +31,15 @@ const cli = meow(
     $ sassdoc2md ./src/scss/*.scss ./dest/README.md -m ./src/README.md -s API
   `,
   {
+    importMeta: import.meta,
     flags: {
       markdown: {
         type: 'string',
-        alias: 'm'
+        shortFlag: 'm'
       },
       section: {
         type: 'string',
-        alias: 's',
+        shortFlag: 's',
         default: 'API'
       },
 
@@ -66,7 +67,7 @@ const cli = meow(
       },
       verbose: {
         type: 'boolean',
-        alias: 'v'
+        shortFlag: 'v'
       },
       strict: {
         type: 'boolean'
