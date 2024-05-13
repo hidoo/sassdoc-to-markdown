@@ -55,7 +55,7 @@
     "@commitlint/config-conventional": "19.2.2",
     "@hidoo/eslint-config": "1.3.1",
     "@hidoo/stylelint-config": "1.0.0",
-    "conventional-changelog-cli": "4.1.0",
+    "conventional-changelog-cli": "5.0.0",
     "cross-env": "7.0.3",
     "eslint": "8.57.0",
     "lint-staged": "15.2.2",
