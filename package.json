@@ -61,6 +61,6 @@
     "lint-staged": "15.2.2",
     "mocha": "10.4.0",
     "prettier": "3.2.5",
-    "stylelint": "16.5.0"
+    "stylelint": "16.6.0"
   }
 }
