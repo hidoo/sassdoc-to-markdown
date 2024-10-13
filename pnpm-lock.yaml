@@ -41,7 +41,7 @@ importers:
         version: 1.3.1(@babel/core@7.25.2)(eslint@8.57.1)(typescript@5.6.2)
       '@hidoo/stylelint-config':
         specifier: 1.0.0
-        version: 1.0.0(postcss@8.4.47)(stylelint@16.9.0(typescript@5.6.2))
+        version: 1.0.0(postcss@8.4.47)(stylelint@16.10.0(typescript@5.6.2))
       conventional-changelog-cli:
         specifier: 5.0.0
         version: 5.0.0(conventional-commits-filter@5.0.0)
@@ -61,8 +61,8 @@ importers:
         specifier: 3.3.3
         version: 3.3.3
       stylelint:
-        specifier: 16.9.0
-        version: 16.9.0(typescript@5.6.2)
+        specifier: 16.10.0
+        version: 16.10.0(typescript@5.6.2)
 
 packages:
 
@@ -931,15 +931,15 @@ packages:
     resolution: {integrity: sha512-v1plID3y9r/lPhviJ1wrXpLeyUIGAZ2SHNYTEapm7/8A9nLPoyvVp3RK/EPFqn5kEznyWgYZNsRtYYIWbuG8KA==}
     engines: {node: '>=8'}
 
-  css-functions-list@3.2.2:
-    resolution: {integrity: sha512-c+N0v6wbKVxTu5gOBBFkr9BEdBWaqqjQeiJ8QvSRIJOf+UxlJh930m8e6/WNeODIK0mYLFkoONrnj16i2EcvfQ==}
+  css-functions-list@3.2.3:
+    resolution: {integrity: sha512-IQOkD3hbR5KrN93MtcYuad6YPuTSUhntLHDuLEbFWE+ff2/XSZNdZG+LcbbIW5AXKg/WFIfYItIzVoHngHXZzA==}
     engines: {node: '>=12 || >=16'}
 
   css-tokenize@1.0.1:
     resolution: {integrity: sha512-gLmmbJdwH9HLY4bcA17lnZ8GgPwEXRbvxBJGHnkiB6gLhRpTzjkjtMIvz7YORGW/Ptv2oMk8b5g+u7mRD6Dd7A==}
 
-  css-tree@2.3.1:
-    resolution: {integrity: sha512-6Fv1DV/TYw//QF5IzQdqsNDjx/wc8TrMBZsqjL9eW01tWb7R7k/mq+/VXfJCl7SoD5emsJop9cOByJZfs8hYIw==}
+  css-tree@3.0.0:
+    resolution: {integrity: sha512-o88DVQ6GzsABn1+6+zo2ct801dBO5OASVyxbbvA2W20ue2puSh/VOuqUj90eUeMSX/xqGqBmOKiRQN7tJOuBXw==}
     engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0}
 
   cssesc@3.0.0:
@@ -1265,6 +1265,7 @@ packages:
   eslint@8.57.1:
     resolution: {integrity: sha512-ypowyDxpVSYpkXr9WPv2PAZCtNip1Mv5KTW0SCurXv/9iOpcrH9PaqUElksqEB6pChqHGDRCFTyrZlGhnLNGiA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
 
   espree@9.6.1:
@@ -1603,6 +1604,10 @@ packages:
 
   ignore@5.3.2:
     resolution: {integrity: sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==}
+    engines: {node: '>= 4'}
+
+  ignore@6.0.2:
+    resolution: {integrity: sha512-InwqeHHN2XpumIkMvpl/DCJVrAHgCsG5+cn1XlnLWGwtZBm8QJfSusItfrwx81CTp5agNZqpKU2J/ccC5nGT4A==}
     engines: {node: '>= 4'}
 
   import-fresh@3.3.0:
@@ -2134,8 +2139,8 @@ packages:
   mdast-util-to-string@4.0.0:
     resolution: {integrity: sha512-0H44vDimn51F0YwvxSJSm0eCDOJTRlmN0R1yBh4HLj9wiV1Dn0QoXGbvFAWj2hSItVTlCmBF1hqKlIyUBVFLPg==}
 
-  mdn-data@2.0.30:
-    resolution: {integrity: sha512-GaqWWShW4kv/G9IEucWScBx9G1/vsFZZJUO+tD26M8J8z3Kw5RDQjaoZe03YAClgeS/SWPOcb4nkFBTEi5DUEA==}
+  mdn-data@2.10.0:
+    resolution: {integrity: sha512-qq7C3EtK3yJXMwz1zAab65pjl+UhohqMOctTgcqjLOWABqmwj+me02LSsCuEUxnst9X1lCBpoE0WArGKgdGDzw==}
 
   memoize-decorator@1.0.2:
     resolution: {integrity: sha512-G2vHcq4c+EwnBAOeWCH1mNz99QPCgm4ECjhHOd3SFZm66jVlwhBLdqhCvnHxptaRyZfm8ap3igoeDfrO92+uHQ==}
@@ -2508,8 +2513,8 @@ packages:
   postcss-resolve-nested-selector@0.1.6:
     resolution: {integrity: sha512-0sglIs9Wmkzbr8lQwEyIzlDOOC9bGmfVKcJTaxv3vMmd3uo4o4DerC3En0bnmgceeql9BfC8hRkp7cg0fjdVqw==}
 
-  postcss-safe-parser@7.0.0:
-    resolution: {integrity: sha512-ovehqRNVCpuFzbXoTb4qLtyzK3xn3t/CUBxOs8LsnQjQrShaB4lKiHoVqY8ANaC0hBMHq5QVWk77rwGklFUDrg==}
+  postcss-safe-parser@7.0.1:
+    resolution: {integrity: sha512-0AioNCJZ2DPYz5ABT6bddIqlhgwhpHZ/l65YAYo0BCIn0xiDpsnTHz0gnoTGk0OXZW0JRs+cDwL8u/teRdz+8A==}
     engines: {node: '>=18.0'}
     peerDependencies:
       postcss: ^8.4.31
@@ -3018,8 +3023,8 @@ packages:
     peerDependencies:
       stylelint: '>=16'
 
-  stylelint@16.9.0:
-    resolution: {integrity: sha512-31Nm3WjxGOBGpQqF43o3wO9L5AC36TPIe6030Lnm13H3vDMTcS21DrLh69bMX+DBilKqMMVLian4iG6ybBoNRQ==}
+  stylelint@16.10.0:
+    resolution: {integrity: sha512-z/8X2rZ52dt2c0stVwI9QL2AFJhLhbPkyfpDFcizs200V/g7v+UYY6SNcB9hKOLcDDX/yGLDsY/pX08sLkz9xQ==}
     engines: {node: '>=18.12.0'}
     hasBin: true
 
@@ -3682,22 +3687,22 @@ snapshots:
       - supports-color
       - typescript
 
-  '@hidoo/stylelint-config@1.0.0(postcss@8.4.47)(stylelint@16.9.0(typescript@5.6.2))':
+  '@hidoo/stylelint-config@1.0.0(postcss@8.4.47)(stylelint@16.10.0(typescript@5.6.2))':
     dependencies:
-      stylelint: 16.9.0(typescript@5.6.2)
-      stylelint-config-clean-order: 5.4.2(stylelint@16.9.0(typescript@5.6.2))
-      stylelint-config-prettier-scss: 1.0.0(stylelint@16.9.0(typescript@5.6.2))
-      stylelint-config-recommended-scss: 14.0.0(postcss@8.4.47)(stylelint@16.9.0(typescript@5.6.2))
-      stylelint-config-standard: 36.0.0(stylelint@16.9.0(typescript@5.6.2))
-      stylelint-config-standard-scss: 13.1.0(postcss@8.4.47)(stylelint@16.9.0(typescript@5.6.2))
-      stylelint-declaration-block-no-ignored-properties: 2.8.0(stylelint@16.9.0(typescript@5.6.2))
-      stylelint-group-selectors: 1.0.10(stylelint@16.9.0(typescript@5.6.2))
-      stylelint-high-performance-animation: 1.10.0(stylelint@16.9.0(typescript@5.6.2))
-      stylelint-no-unsupported-browser-features: 8.0.1(stylelint@16.9.0(typescript@5.6.2))
-      stylelint-scss: 6.2.1(stylelint@16.9.0(typescript@5.6.2))
-      stylelint-selector-no-empty: 1.0.9(stylelint@16.9.0(typescript@5.6.2))
-      stylelint-selector-tag-no-without-class: 3.0.1(stylelint@16.9.0(typescript@5.6.2))
-      stylelint-value-no-unknown-custom-properties: 6.0.1(stylelint@16.9.0(typescript@5.6.2))
+      stylelint: 16.10.0(typescript@5.6.2)
+      stylelint-config-clean-order: 5.4.2(stylelint@16.10.0(typescript@5.6.2))
+      stylelint-config-prettier-scss: 1.0.0(stylelint@16.10.0(typescript@5.6.2))
+      stylelint-config-recommended-scss: 14.0.0(postcss@8.4.47)(stylelint@16.10.0(typescript@5.6.2))
+      stylelint-config-standard: 36.0.0(stylelint@16.10.0(typescript@5.6.2))
+      stylelint-config-standard-scss: 13.1.0(postcss@8.4.47)(stylelint@16.10.0(typescript@5.6.2))
+      stylelint-declaration-block-no-ignored-properties: 2.8.0(stylelint@16.10.0(typescript@5.6.2))
+      stylelint-group-selectors: 1.0.10(stylelint@16.10.0(typescript@5.6.2))
+      stylelint-high-performance-animation: 1.10.0(stylelint@16.10.0(typescript@5.6.2))
+      stylelint-no-unsupported-browser-features: 8.0.1(stylelint@16.10.0(typescript@5.6.2))
+      stylelint-scss: 6.2.1(stylelint@16.10.0(typescript@5.6.2))
+      stylelint-selector-no-empty: 1.0.9(stylelint@16.10.0(typescript@5.6.2))
+      stylelint-selector-tag-no-without-class: 3.0.1(stylelint@16.10.0(typescript@5.6.2))
+      stylelint-value-no-unknown-custom-properties: 6.0.1(stylelint@16.10.0(typescript@5.6.2))
     transitivePeerDependencies:
       - postcss
 
@@ -4406,16 +4411,16 @@ snapshots:
 
   crypto-random-string@2.0.0: {}
 
-  css-functions-list@3.2.2: {}
+  css-functions-list@3.2.3: {}
 
   css-tokenize@1.0.1:
     dependencies:
       inherits: 2.0.4
       readable-stream: 1.1.14
 
-  css-tree@2.3.1:
+  css-tree@3.0.0:
     dependencies:
-      mdn-data: 2.0.30
+      mdn-data: 2.10.0
       source-map-js: 1.2.1
 
   cssesc@3.0.0: {}
@@ -5200,6 +5205,8 @@ snapshots:
 
   ignore@5.3.2: {}
 
+  ignore@6.0.2: {}
+
   import-fresh@3.3.0:
     dependencies:
       parent-module: 1.0.1
@@ -5755,7 +5762,7 @@ snapshots:
     dependencies:
       '@types/mdast': 4.0.4
 
-  mdn-data@2.0.30: {}
+  mdn-data@2.10.0: {}
 
   memoize-decorator@1.0.2: {}
 
@@ -6217,7 +6224,7 @@ snapshots:
 
   postcss-resolve-nested-selector@0.1.6: {}
 
-  postcss-safe-parser@7.0.0(postcss@8.4.47):
+  postcss-safe-parser@7.0.1(postcss@8.4.47):
     dependencies:
       postcss: 8.4.47
 
@@ -6705,94 +6712,94 @@ snapshots:
 
   strip-json-comments@3.1.1: {}
 
-  stylelint-config-clean-order@5.4.2(stylelint@16.9.0(typescript@5.6.2)):
+  stylelint-config-clean-order@5.4.2(stylelint@16.10.0(typescript@5.6.2)):
     dependencies:
-      stylelint: 16.9.0(typescript@5.6.2)
-      stylelint-order: 6.0.4(stylelint@16.9.0(typescript@5.6.2))
+      stylelint: 16.10.0(typescript@5.6.2)
+      stylelint-order: 6.0.4(stylelint@16.10.0(typescript@5.6.2))
 
-  stylelint-config-prettier-scss@1.0.0(stylelint@16.9.0(typescript@5.6.2)):
+  stylelint-config-prettier-scss@1.0.0(stylelint@16.10.0(typescript@5.6.2)):
     dependencies:
-      stylelint: 16.9.0(typescript@5.6.2)
+      stylelint: 16.10.0(typescript@5.6.2)
 
-  stylelint-config-recommended-scss@14.0.0(postcss@8.4.47)(stylelint@16.9.0(typescript@5.6.2)):
+  stylelint-config-recommended-scss@14.0.0(postcss@8.4.47)(stylelint@16.10.0(typescript@5.6.2)):
     dependencies:
       postcss-scss: 4.0.9(postcss@8.4.47)
-      stylelint: 16.9.0(typescript@5.6.2)
-      stylelint-config-recommended: 14.0.1(stylelint@16.9.0(typescript@5.6.2))
-      stylelint-scss: 6.2.1(stylelint@16.9.0(typescript@5.6.2))
+      stylelint: 16.10.0(typescript@5.6.2)
+      stylelint-config-recommended: 14.0.1(stylelint@16.10.0(typescript@5.6.2))
+      stylelint-scss: 6.2.1(stylelint@16.10.0(typescript@5.6.2))
     optionalDependencies:
       postcss: 8.4.47
 
-  stylelint-config-recommended@14.0.1(stylelint@16.9.0(typescript@5.6.2)):
+  stylelint-config-recommended@14.0.1(stylelint@16.10.0(typescript@5.6.2)):
     dependencies:
-      stylelint: 16.9.0(typescript@5.6.2)
+      stylelint: 16.10.0(typescript@5.6.2)
 
-  stylelint-config-standard-scss@13.1.0(postcss@8.4.47)(stylelint@16.9.0(typescript@5.6.2)):
+  stylelint-config-standard-scss@13.1.0(postcss@8.4.47)(stylelint@16.10.0(typescript@5.6.2)):
     dependencies:
-      stylelint: 16.9.0(typescript@5.6.2)
-      stylelint-config-recommended-scss: 14.0.0(postcss@8.4.47)(stylelint@16.9.0(typescript@5.6.2))
-      stylelint-config-standard: 36.0.0(stylelint@16.9.0(typescript@5.6.2))
+      stylelint: 16.10.0(typescript@5.6.2)
+      stylelint-config-recommended-scss: 14.0.0(postcss@8.4.47)(stylelint@16.10.0(typescript@5.6.2))
+      stylelint-config-standard: 36.0.0(stylelint@16.10.0(typescript@5.6.2))
     optionalDependencies:
       postcss: 8.4.47
 
-  stylelint-config-standard@36.0.0(stylelint@16.9.0(typescript@5.6.2)):
+  stylelint-config-standard@36.0.0(stylelint@16.10.0(typescript@5.6.2)):
     dependencies:
-      stylelint: 16.9.0(typescript@5.6.2)
-      stylelint-config-recommended: 14.0.1(stylelint@16.9.0(typescript@5.6.2))
+      stylelint: 16.10.0(typescript@5.6.2)
+      stylelint-config-recommended: 14.0.1(stylelint@16.10.0(typescript@5.6.2))
 
-  stylelint-declaration-block-no-ignored-properties@2.8.0(stylelint@16.9.0(typescript@5.6.2)):
+  stylelint-declaration-block-no-ignored-properties@2.8.0(stylelint@16.10.0(typescript@5.6.2)):
     dependencies:
-      stylelint: 16.9.0(typescript@5.6.2)
+      stylelint: 16.10.0(typescript@5.6.2)
 
-  stylelint-group-selectors@1.0.10(stylelint@16.9.0(typescript@5.6.2)):
+  stylelint-group-selectors@1.0.10(stylelint@16.10.0(typescript@5.6.2)):
     dependencies:
       md5: 2.3.0
       postcss: 8.4.47
-      stylelint: 16.9.0(typescript@5.6.2)
+      stylelint: 16.10.0(typescript@5.6.2)
 
-  stylelint-high-performance-animation@1.10.0(stylelint@16.9.0(typescript@5.6.2)):
+  stylelint-high-performance-animation@1.10.0(stylelint@16.10.0(typescript@5.6.2)):
     dependencies:
       postcss-value-parser: 4.2.0
-      stylelint: 16.9.0(typescript@5.6.2)
+      stylelint: 16.10.0(typescript@5.6.2)
 
-  stylelint-no-unsupported-browser-features@8.0.1(stylelint@16.9.0(typescript@5.6.2)):
+  stylelint-no-unsupported-browser-features@8.0.1(stylelint@16.10.0(typescript@5.6.2)):
     dependencies:
       doiuse: 6.0.3
       postcss: 8.4.47
-      stylelint: 16.9.0(typescript@5.6.2)
+      stylelint: 16.10.0(typescript@5.6.2)
 
-  stylelint-order@6.0.4(stylelint@16.9.0(typescript@5.6.2)):
+  stylelint-order@6.0.4(stylelint@16.10.0(typescript@5.6.2)):
     dependencies:
       postcss: 8.4.47
       postcss-sorting: 8.0.2(postcss@8.4.47)
-      stylelint: 16.9.0(typescript@5.6.2)
+      stylelint: 16.10.0(typescript@5.6.2)
 
-  stylelint-scss@6.2.1(stylelint@16.9.0(typescript@5.6.2)):
+  stylelint-scss@6.2.1(stylelint@16.10.0(typescript@5.6.2)):
     dependencies:
       known-css-properties: 0.29.0
       postcss-media-query-parser: 0.2.3
       postcss-resolve-nested-selector: 0.1.6
       postcss-selector-parser: 6.1.2
       postcss-value-parser: 4.2.0
-      stylelint: 16.9.0(typescript@5.6.2)
+      stylelint: 16.10.0(typescript@5.6.2)
 
-  stylelint-selector-no-empty@1.0.9(stylelint@16.9.0(typescript@5.6.2)):
+  stylelint-selector-no-empty@1.0.9(stylelint@16.10.0(typescript@5.6.2)):
     dependencies:
-      stylelint: 16.9.0(typescript@5.6.2)
+      stylelint: 16.10.0(typescript@5.6.2)
 
-  stylelint-selector-tag-no-without-class@3.0.1(stylelint@16.9.0(typescript@5.6.2)):
+  stylelint-selector-tag-no-without-class@3.0.1(stylelint@16.10.0(typescript@5.6.2)):
     dependencies:
       lodash: 4.17.21
       postcss-selector-parser: 6.1.2
-      stylelint: 16.9.0(typescript@5.6.2)
+      stylelint: 16.10.0(typescript@5.6.2)
 
-  stylelint-value-no-unknown-custom-properties@6.0.1(stylelint@16.9.0(typescript@5.6.2)):
+  stylelint-value-no-unknown-custom-properties@6.0.1(stylelint@16.10.0(typescript@5.6.2)):
     dependencies:
       postcss-value-parser: 4.2.0
       resolve: 1.22.8
-      stylelint: 16.9.0(typescript@5.6.2)
+      stylelint: 16.10.0(typescript@5.6.2)
 
-  stylelint@16.9.0(typescript@5.6.2):
+  stylelint@16.10.0(typescript@5.6.2):
     dependencies:
       '@csstools/css-parser-algorithms': 3.0.1(@csstools/css-tokenizer@3.0.1)
       '@csstools/css-tokenizer': 3.0.1
@@ -6802,8 +6809,8 @@ snapshots:
       balanced-match: 2.0.0
       colord: 2.9.3
       cosmiconfig: 9.0.0(typescript@5.6.2)
-      css-functions-list: 3.2.2
-      css-tree: 2.3.1
+      css-functions-list: 3.2.3
+      css-tree: 3.0.0
       debug: 4.3.7(supports-color@8.1.1)
       fast-glob: 3.3.2
       fastest-levenshtein: 1.0.16
@@ -6812,7 +6819,7 @@ snapshots:
       globby: 11.1.0
       globjoin: 0.1.4
       html-tags: 3.3.1
-      ignore: 5.3.2
+      ignore: 6.0.2
       imurmurhash: 0.1.4
       is-plain-object: 5.0.0
       known-css-properties: 0.34.0
@@ -6823,12 +6830,11 @@ snapshots:
       picocolors: 1.1.0
       postcss: 8.4.47
       postcss-resolve-nested-selector: 0.1.6
-      postcss-safe-parser: 7.0.0(postcss@8.4.47)
+      postcss-safe-parser: 7.0.1(postcss@8.4.47)
       postcss-selector-parser: 6.1.2
       postcss-value-parser: 4.2.0
       resolve-from: 5.0.0
       string-width: 4.2.3
-      strip-ansi: 7.1.0
       supports-hyperlinks: 3.1.0
       svg-tags: 1.0.0
       table: 6.8.2
